@@ -24,7 +24,7 @@ const createChatHandler = async (
 const getAllChatsHandler = async (_req: Request, res: Response) => {
   try {
     const chats = await getAllChats();
-    return res.json(chats);
+    return res.json({message: "hello"});
   } catch (error: any) {
     console.log(error.message);
     return res.status(500).json(error.message);

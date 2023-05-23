@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import path from "path";
 import routes from "./routes.json";
 import userRoutes from "./user.routes";
+import chatRoutes from "./chat.routes";
 
 const router = Router();
 
@@ -27,6 +28,7 @@ router.get("/routes", (_req: Request, res: Response) =>
 
 // add api routes
 router.use("/api/user", userRoutes);
+router.use("/api/chat", chatRoutes);
 
 router.all("*", (_req: Request, res: Response) => {
   res.status(404).sendFile(path.join(__dirname, "../static/404.html"));
